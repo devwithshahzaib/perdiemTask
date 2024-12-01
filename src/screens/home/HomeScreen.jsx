@@ -1,12 +1,16 @@
-import {View, Text} from 'react-native';
 import React from 'react';
+import {View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import styles from './HomeScreenStyle';
+import Header from '@components/common/Header';
+import styles from './HomeScreen.style';
 
-export default function HomeScreen() {
+const HomeScreen = () => {
   return (
-    <SafeAreaView>
-      <Text>HomeScreen</Text>
+    <SafeAreaView style={styles.container}>
+      <Header />
+      <View style={styles.content}></View>
     </SafeAreaView>
   );
-}
+};
+
+export default HomeScreen;

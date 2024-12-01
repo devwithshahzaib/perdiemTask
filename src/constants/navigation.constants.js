@@ -6,6 +6,7 @@ const AUTH_NAVIGATION = {
 const APP_NAVIGATION = {
   MAIN: 'Main',
   HOME: 'Home',
+  PROFILE: 'Profile',
 };
 
 export {AUTH_NAVIGATION, APP_NAVIGATION};

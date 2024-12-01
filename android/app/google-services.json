@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "228353937526",
+    "project_id": "perdiem-task",
+    "storage_bucket": "perdiem-task.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228353937526:android:e58b66fd53e216a5938f57",
+        "android_client_info": {
+          "package_name": "com.perdiemtask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228353937526-924ds364vgrurkqu47etnkanuqiod92l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.perdiemtask",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "228353937526-8ogl00ihadekalati6h1n6feurrurhg0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtGAq61CGO3U67rJyJktlWkKBt8CQaT2k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228353937526-8ogl00ihadekalati6h1n6feurrurhg0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "228353937526-7tijmsnodmtsjmp2o993ljbmvpavrck1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.perdiemtask"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
