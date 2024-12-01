@@ -1,79 +1,183 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Pokemon App with React Native
 
-# Getting Started
+A React Native application that displays Pokemon information using the PokeAPI, featuring Google Sign-In, Push Notifications, and a modern UI with animations.
+### Loom Explanation: 
+[Watch Part 1 on Loom](https://www.loom.com/share/8bb7a3440ba94225b1c6c37c3817bcb0)
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Step 1: Start the Metro Server
+[Watch Part 2 on Loom](https://www.loom.com/share/a1c9c4645e004b0ebeb6153e484f0f8f)
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Features
 
-To start Metro, run the following command from the _root_ of your React Native project:
+### Authentication
+- Google Sign-In integration using Firebase Authentication
+- Persistent authentication state
+- Proper sign-out handling with cleanup
 
+### Pokemon List
+- Paginated list of Pokemon using PokeAPI
+- Infinite scroll with loading indicators
+- Pull-to-refresh functionality
+- Smooth animations for list items
+- Error handling with retry options
+- Two-column grid layout
+- Caching for better performance
+
+### Pokemon Details
+- Detailed view of each Pokemon
+- Animated stats bars
+- Smooth transitions and loading states
+- Error handling with retry options
+
+### Push Notifications (Firebase Cloud Messaging)
+- Handles notifications in all app states:
+  - Foreground
+  - Background
+  - Quit/Closed
+- Navigation to Pokemon details when notification is clicked
+- Proper permission handling
+- Token management (registration/unregistration)
+
+### UI/UX Features
+- Loading indicators for API calls
+- Error handling with retry options
+- Smooth animations
+- Pull-to-refresh functionality
+- Infinite scroll
+- Responsive layout
+
+## Technical Stack
+
+- React Native
+- Firebase (Authentication, Cloud Messaging)
+- React Navigation
+- Redux Toolkit (State Management)
+- React Query (API Data Management)
+- Axios (API Calls)
+
+## Setup Instructions
+
+1. Clone the repository:
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+git clone [repository-url]
+cd [project-name]
 ```
 
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
+2. Install dependencies:
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+yarn install
 ```
 
-### For iOS
+3. iOS Setup:
+```bash
+cd ios
+pod install
+cd ..
+```
+
+4. Firebase Setup:
+
+- Create a new Firebase project
+- Add Android & iOS apps
+- Download and place configuration files:
+  - Android: `google-services.json` in `android/app/`
+  - iOS: `GoogleService-Info.plist` in `ios/perdiemTask/`
+- Enable Authentication with Google Sign-In
+- Enable Cloud Messaging
+
+5. Update Google Sign-In configuration:
+- Get Web Client ID from Firebase Console
+- Update `webClientId` in `src/services/firebase/auth.js`
+
+## Running the App
+
+For iOS:
 
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
 yarn ios
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+For Android:
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+```bash
+yarn android
+```
 
-## Step 3: Modifying your App
+## Testing Push Notifications
 
-Now that you have successfully run the app, let's modify it.
+1. Get FCM Token from app logs after login
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+2. Send test notification using Firebase Console:
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+```json
+{
+  "notification": {
+    "title": "New Pokemon Found!",
+    "body": "Check out this Pokemon!"
+  },
+  "data": {
+    "pokemonId": "25"
+  }
+}
+```
 
-## Congratulations! :tada:
+## Project Structure
 
-You've successfully run and modified your React Native App. :partying_face:
+```
+src/
+├── components/      # Reusable components
+├── screens/         # Screen components
+├── navigation/      # Navigation setup
+├── services/        # API and Firebase services
+├── store/           # Redux store
+├── constants/       # App constants
+└── utils/           # Utility functions
+```
 
-### Now what?
+## Key Technologies
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+- React Native
+- Firebase (Auth & FCM)
+- React Navigation
+- Redux Toolkit
+- React Query
+- Axios
 
-# Troubleshooting
+## Development Notes
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+### Authentication Flow
+- Uses Firebase Authentication with Google Sign-In
+- Persists auth state using Redux Persist
+- Handles token cleanup on logout
 
-# Learn More
+### Push Notifications
+- Foreground: Shows alert with View/Cancel options
+- Background/Closed: Opens Pokemon details on tap
+- Handles permissions and token management
 
-To learn more about React Native, take a look at the following resources:
+### Data Management
+- Uses React Query for API data
+- Implements infinite scroll
+- Handles loading and error states
+- Includes pull-to-refresh
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## Troubleshooting
+
+### Google Sign-In Issues
+- Verify Firebase configuration
+- Check `webClientId` in `auth.js`
+- Verify SHA-1 in Firebase Console
+
+### Push Notification Issues
+- Check Android permissions
+- Verify FCM setup
+- Test using Firebase Console
+
+## Scripts
+
+```bash
+yarn start     # Start Metro bundler
+yarn ios       # Run on iOS
+yarn android   # Run on Android
+yarn lint      # Run linter
+```
