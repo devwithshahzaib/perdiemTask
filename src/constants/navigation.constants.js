@@ -1,12 +1,11 @@
-const AUTH_NAVIGATION = {
+export const AUTH_NAVIGATION = {
   AUTH: 'Auth',
   LOGIN: 'Login',
 };
 
-const APP_NAVIGATION = {
+export const APP_NAVIGATION = {
   MAIN: 'Main',
   HOME: 'Home',
   PROFILE: 'Profile',
+  DETAILS: 'Details',
 };
-
-export {AUTH_NAVIGATION, APP_NAVIGATION};
