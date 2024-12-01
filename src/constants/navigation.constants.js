@@ -1,4 +1,5 @@
 const AUTH_NAVIGATION = {
+  AUTH: 'Auth',
   LOGIN: 'Login',
 };
 

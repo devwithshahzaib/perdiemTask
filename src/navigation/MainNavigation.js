@@ -5,12 +5,12 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import AuthNavigation from '@navigation/AuthNavigation';
 import AppNavigation from '@navigation/AppNavigation';
 import {AUTH_NAVIGATION, APP_NAVIGATION} from '@constants/navigation.constants';
+import {useAppSelector} from '@store/hooks';
 
 const Stack = createNativeStackNavigator();
 
 const MainNavigation = () => {
-  const isLoggedIn = false;
-
+  const {isLoggedIn} = useAppSelector(state => state.auth);
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -21,7 +21,7 @@ const MainNavigation = () => {
           <Stack.Screen name={APP_NAVIGATION.MAIN} component={AppNavigation} />
         ) : (
           <Stack.Screen
-            name={AUTH_NAVIGATION.LOGIN}
+            name={AUTH_NAVIGATION.AUTH}
             component={AuthNavigation}
           />
         )}
