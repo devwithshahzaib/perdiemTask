@@ -1,19 +1,24 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 import {COLORS} from '@constants/colors';
+
+const {width} = Dimensions.get('window');
 
 export default StyleSheet.create({
   listContainer: {
     padding: 8,
   },
+  cardContainer: {
+    width: '50%',
+    padding: 8,
+  },
   card: {
     flex: 1,
-    margin: 8,
-    padding: 16,
     backgroundColor: COLORS.background,
     borderRadius: 8,
     borderWidth: 1,
     borderColor: COLORS.border,
     alignItems: 'center',
+    padding: 16,
   },
   pokemonImage: {
     width: 100,
@@ -28,6 +33,8 @@ export default StyleSheet.create({
   },
   typeContainer: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
     gap: 4,
     marginTop: 4,
   },

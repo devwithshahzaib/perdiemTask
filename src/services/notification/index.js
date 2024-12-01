@@ -104,3 +104,12 @@ export const setupNotifications = () => {
     return () => {}; // Return empty cleanup function if setup fails
   }
 };
+
+export const unregisterFCMToken = async () => {
+  try {
+    await messaging().deleteToken();
+    console.log('FCM Token deleted successfully');
+  } catch (error) {
+    console.error('Error deleting FCM token:', error);
+  }
+};
